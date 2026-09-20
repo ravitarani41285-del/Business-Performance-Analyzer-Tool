@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Business Performance Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Business Performance Analyzer</h1>
+
+    <p>Enter your business sales and expenses to check profit status.</p>
+
+    <input type="number" id="sales" placeholder="Enter total sales">
+
+    <input type="number" id="expenses" placeholder="Enter total expenses">
+
+    <button onclick="analyzeBusiness()">Analyze Business</button>
+
+    <div id="result">Result will appear here.</div>
+
+    <script>
+        function analyzeBusiness() {
+            let sales = Number(document.getElementById("sales").value);
+            let expenses = Number(document.getElementById("expenses").value);
+
+            let profit = sales - expenses;
+
+            if (profit > 0) {
+                document.getElementById("result").innerHTML =
+                    "Status: PROFIT<br>Profit: ₹" + profit;
+            } else if (profit < 0) {
+                document.getElementById("result").innerHTML =
+                    "Status: LOSS<br>Loss: ₹" + Math.abs(profit);
+            } else {
+                document.getElementById("result").innerHTML =
+                    "Status: BREAK-EVEN<br>Profit: ₹0";
+            }
+        }
+    </script>
+
+</body>
+</html>

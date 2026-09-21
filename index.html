@@ -2,11 +2,13 @@
 <html>
 <head>
     <title>Business Performance Analyzer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             font-family: Arial, sans-serif;
             max-width: 500px;
-            margin: 40px auto;
+            margin: auto;
             padding: 20px;
         }
 
@@ -32,6 +34,13 @@
             text-align: center;
             font-weight: bold;
         }
+
+        .contact {
+            margin-top: 25px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -39,36 +48,47 @@
 
     <h1>Business Performance Analyzer</h1>
 
-    <p>Enter your business sales and expenses to check profit status.</p>
+    <p>Analyze your business sales, expenses and profit.</p>
 
+    <h2>Business Details</h2>
+
+    <label>Total Sales:</label>
     <input type="number" id="sales" placeholder="Enter total sales">
 
+    <label>Total Expenses:</label>
     <input type="number" id="expenses" placeholder="Enter total expenses">
 
     <button onclick="analyzeBusiness()">Analyze Business</button>
 
-    <div id="result">Result will appear here.</div>
+    <div id="result">
+        Enter sales and expenses, then click Analyze Business.
+    </div>
+
+    <div class="contact">
+        <h2>Contact Me</h2>
+        <p>Interested in this project or want to work with me?</p>
+        <a href="contact.html">Open Contact Page</a>
+    </div>
 
     <script>
         function analyzeBusiness() {
             let sales = Number(document.getElementById("sales").value);
             let expenses = Number(document.getElementById("expenses").value);
 
+            if (sales === 0 && expenses === 0) {
+                document.getElementById("result").innerHTML =
+                    "Please enter sales and expenses.";
+                return;
+            }
+
             let profit = sales - expenses;
 
-            if (profit > 0) {
-                document.getElementById("result").innerHTML =
-                    "Status: PROFIT<br>Profit: ₹" + profit;
-            } else if (profit < 0) {
-                document.getElementById("result").innerHTML =
-                    "Status: LOSS<br>Loss: ₹" + Math.abs(profit);
-            } else {
-                document.getElementById("result").innerHTML =
-                    "Status: BREAK-EVEN<br>Profit: ₹0";
-            }
+            document.getElementById("result").innerHTML =
+                "Sales: " + sales +
+                "<br>Expenses: " + expenses +
+                "<br>Profit: " + profit;
         }
     </script>
 
 </body>
 </html>
- 

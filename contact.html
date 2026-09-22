@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact Me</title>
+    <title>Contact - Business Performance Analyzer</title>
 </head>
+
 <body>
 
     <h1>Contact Me</h1>
 
-    <p>If you are interested in my project or would like to work with me, you can contact me by email.</p>
+    <p>If you have any questions or want to discuss a project, contact me.</p>
 
-    <p>Email: <a href="mailto:YOUR-EMAIL@example.com">YOUR-EMAIL@example.com</a></p>
+    <p>Email: ravitarani41285@gmail.com</p>
 
-    <p>I will try to respond as soon as possible.</p>
+    <form action="mailto:ravitarani41285@gmail.com" method="post" enctype="text/plain">
 
-    <a href="index.html">Back to Home</a>
+        <label>Your Name:</label><br>
+        <input type="text" name="name"><br><br>
+
+        <label>Your Email:</label><br>
+        <input type="email" name="email"><br><br>
+
+        <label>Your Message:</label><br>
+        <textarea name="message" rows="6" cols="30"></textarea><br><br>
+
+        <input type="submit" value="Send Message">
+
+    </form>
 
 </body>
 </html>
